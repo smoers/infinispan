@@ -1,6 +1,7 @@
 import java.text.DateFormat;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.Properties;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.UUID;
@@ -19,11 +20,16 @@ public class Inf_10 {
 
 		EmbeddedCacheManager manager = new DefaultCacheManager();
 		ConfigurationBuilder cb = new ConfigurationBuilder();
+		
+		Properties properties = new Properties();
+		properties.put("hibernate.search.default.directory_provide", "filesystem");
+		properties.put("hibernate.search.default.indexBase", "D:/infinispan/Indexes");
 
 		Configuration c = cb
 			.indexing()
 			.enable()
 			.indexLocalOnly(true)
+			.withProperties(properties)
 			.persistence()
 			.passivation(false)
 			.addSingleFileStore()
@@ -68,6 +74,13 @@ public class Inf_10 {
 			System.out.println("-------------------------------------------------------------------");
 			
 		}
+		
+		IAuthor author = cache.get(UUID.fromString("d33d3ee6-c83a-4ba1-a075-a507a2d690be"));
+		System.out.println(author.getLastName());
+		/*author.setLastName("Moers");
+		cache.put(author.getID(), author);
+		IAuthor author1 = cache.get(UUID.fromString("d33d3ee6-c83a-4ba1-a075-a507a2d690be"));
+		System.out.println(author1.getLastName());*/
 		
 		cache.stop();
 		manager.stop();

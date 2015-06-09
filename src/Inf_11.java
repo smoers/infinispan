@@ -29,7 +29,7 @@ public class Inf_11 {
 		ConfigurationBuilder cb = new ConfigurationBuilder();
 		SearchMapping mapping = new SearchMapping();
 		
-		/*mapping.entity(AuthorInfinispan.class).indexed().providedId()
+		mapping.entity(AuthorInfinispan.class).indexed().providedId()
 			.property("lastname", ElementType.METHOD)
 			.property("firstname", ElementType.METHOD)
 			.property("authoralias", ElementType.METHOD);
@@ -41,10 +41,10 @@ public class Inf_11 {
 			.property("title", ElementType.METHOD)
 			.property("style", ElementType.METHOD)
 			.property("editor", ElementType.METHOD);
-		*/	
+			
 		
 		Properties properties = new Properties();
-		//properties.put(Environment.MODEL_MAPPING, mapping);
+		properties.put(Environment.MODEL_MAPPING, mapping);
 		properties.put("hibernate.search.default.directory_provide", "filesystem");
 		properties.put("hibernate.search.default.indexBase", "D:/infinispan/Indexes");
 		
@@ -71,18 +71,21 @@ public class Inf_11 {
 		
 		SearchManager searchmanager = Search.getSearchManager(cache);
 		
+		searchmanager.getMassIndexer().start();
+		
+		
 		QueryBuilder mythQB = searchmanager.getSearchFactory().buildQueryBuilder().forEntity(AuthorInfinispan.class).get();
-		//Query lucenequery = mythQB.keyword().wildcard().onField("street").matching("street*").createQuery();
+		Query lucenequery = mythQB.keyword().wildcard().onField("lastname").matching("Moers").createQuery();
 		//Query lucenequery = mythQB.keyword().wildcard().onField("firstname").andField("inflistcycle.inflistbook.title").matching("Au delà des échos-9-1-1").createQuery();
 		//Query lucenequery = mythQB.keyword().wildcard().onField("comment").matching("*").createQuery();
 		//Query lucenequery = mythQB.keyword().wildcard().onField("borndate.year").matching("2014").createQuery();
 		//Query lucenequery = mythQB.phrase().onField("inflistcycle.inflistbook.title").sentence("Au delà des échos-400-1-1").createQuery();
 		//Query lucenequery = mythQB.phrase().withSlop(100).onField("inflistcycle.inflistbook.title").sentence("Au delà des échos-40").createQuery();
 		//Query lucenequery = mythQB.phrase().onField("borndate.year").sentence("2014").createQuery();
-		Query lucenequery = mythQB.bool().should(mythQB.phrase().withSlop(100).onField("inflistcycle.inflistbook.title").sentence("Au delà des échos-40").createQuery())
-				.should(mythQB.keyword().wildcard().onField("firstname").matching("firstname50").createQuery())
+		/*Query lucenequery = mythQB.bool().should(mythQB.phrase().withSlop(100).onField("inflistcycle.inflistbook.title").sentence("Au delà des échos-40").createQuery())
+				.should(mythQB.keyword().wildcard().onField("lastname").matching("Moers").createQuery())
 				.should(mythQB.phrase().onField("borndate.year").sentence("2015").createQuery())
-				.createQuery();
+				.createQuery();*/
 				
 		CacheQuery cachequery = searchmanager.getQuery(lucenequery);
 		
