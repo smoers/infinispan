@@ -61,7 +61,7 @@ public class Inf_13 {
 		
 		Cache<UUID, IAuthor> cache = manager.getCache("book012015"); 
 
-		for(int author_i=0; author_i < 500; author_i++){
+		for(int author_i=60; author_i < 621; author_i++){
 			AuthorInfinispan author = new AuthorInfinispan();
 			author.setLastName("lastname"+author_i);
 			author.setFirstName("firstname"+author_i );
