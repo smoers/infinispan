@@ -17,6 +17,8 @@ public class Test_Memory {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		
+		
 		MemoryMXBean memoryMXBean=ManagementFactory.getMemoryMXBean();
 		MemoryUsage memNonHeap=memoryMXBean.getNonHeapMemoryUsage();
 		MemoryUsage memHeap=memoryMXBean.getHeapMemoryUsage();

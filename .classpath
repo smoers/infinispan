@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_05"/>
-	<classpathentry kind="lib" path="lib/infinispan-core-6.0.0.Final.jar"/>
 	<classpathentry kind="lib" path="lib/joda-time-2.3.jar"/>
 	<classpathentry kind="lib" path="lib/usertype.core-3.0.0.CR1.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-core-4.3.4.Final.jar"/>
@@ -10,14 +9,16 @@
 	<classpathentry kind="lib" path="lib/infinispan-commons-6.0.0.Final.jar"/>
 	<classpathentry kind="lib" path="lib/jboss-logging-3.1.2.GA.jar"/>
 	<classpathentry kind="lib" path="lib/jboss-marshalling-1.3.18.GA.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-search-engine-4.4.0.Final.jar"/>
-	<classpathentry kind="lib" path="lib/lucene-core-3.6.2.jar"/>
 	<classpathentry kind="lib" path="lib/infinispan-query-6.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-search-infinispan-4.4.0.Final.jar"/>
-	<classpathentry kind="lib" path="lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
 	<classpathentry kind="lib" path="lib/jboss-transaction-api_1.1_spec-1.0.1.Final.jar"/>
 	<classpathentry kind="lib" path="lib/jboss-marshalling-river-1.3.18.GA.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-commons-annotations-4.0.4.Final.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate-hql-parser-1.0.0.Alpha5.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-analyzers-common-5.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-search-engine-5.2.0.Final.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="lib/infinispan-core-7.2.1.Final.jar"/>
+	<classpathentry kind="lib" path="lib/infinispan-embedded-7.2.2.Final.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-core-5.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -5,7 +5,7 @@ import java.util.Properties;
 import java.util.UUID;
 
 import org.apache.lucene.search.Query;
-import org.hibernate.search.Environment;
+import org.hibernate.search.cfg.Environment;
 import org.hibernate.search.cfg.SearchMapping;
 import org.hibernate.search.query.dsl.QueryBuilder;
 import org.infinispan.Cache;
